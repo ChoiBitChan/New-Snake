@@ -139,7 +139,7 @@ public class View implements Initializable {
 			if (e.getCode() == KeyCode.SPACE) {
 			}
 			if (e.getCode() == KeyCode.ENTER) {
-				startgame();
+				startGame();
 				tt.bonusCnt = 101;
 				if (timeline.getStatus() == Status.STOPPED) {
 					timeline.play();
@@ -157,7 +157,7 @@ public class View implements Initializable {
 		
 	}
 	
-	public void startgame(){
+	public void startGame(){
 		
 	}
 	
@@ -186,6 +186,14 @@ public class View implements Initializable {
 	}
 	
 	public void random(){
+		
+	}
+	
+	public void setHead(){
+		
+	}
+	
+	public void setAuto(){
 		
 	}
 

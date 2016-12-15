@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Label?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.project.snake.View">
+	<!-- TODO Add Nodes -->
+	<HBox>
+		<GridPane fx:id="grid"></GridPane>
+		<VBox fx:id="vbox">
+			<Label fx:id="Slabel" text="SCORE: 0"></Label>
+			<Label fx:id="Blabel" text="BONUS: 100"></Label>
+		</VBox>
+	</HBox>
+</AnchorPane>
+

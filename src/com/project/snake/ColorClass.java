@@ -4,11 +4,11 @@ import java.util.ArrayList;
 
 import javafx.scene.paint.Color;
 
-public class Colorlist {
+public class ColorClass {
 	
 	ArrayList<Color> colorlist;
 	
-	public Colorlist() {
+	public ColorClass() {
 	}
 
 	public void createColor(){

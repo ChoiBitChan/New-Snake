@@ -58,8 +58,8 @@ public class View implements Initializable {
 	Color hd_color = Color.YELLOW; // 헤드 색
 	
 	LinkedList<Point> headlist; // 헤드 리스트
-	Colorlist colorlist; // 컬러 리스트
 	ArrayList<Color> bodylist; // 랜덤으로 나오는 열매 리스트
+	ColorClass colorclass; // 컬러 리스트
 	
 	Timeline timeline;
 	int time;
@@ -103,7 +103,7 @@ public class View implements Initializable {
 			}
 		}
 		
-		colorlist = new Colorlist(); // 컬러 리스트 객체 생성
+		colorclass = new ColorClass(); // 컬러 리스트 객체 생성
 		
 		hbox.setOnKeyPressed(e -> {
 			if (e.getCode() == KeyCode.UP) { // 방향키 위쪽 눌렀을 때
@@ -269,8 +269,8 @@ public class View implements Initializable {
 		random = new Point(); // 좌표 객체 생성
 
 		// 컬러 리스트 사이즈 만큼의 개수 중에 랜덤 숫자 생성
-		ranC = (int) (Math.random() * colorlist.colorlist.size()); 
-		randomcolor = colorlist.colorlist.get(ranC); // 랜덤 숫자 위치에 있는 색깔을 랜덤컬러로 지정
+		ranC = (int) (Math.random() * colorclass.colorlist.size()); 
+		randomcolor = colorclass.colorlist.get(ranC); // 랜덤 숫자 위치에 있는 색깔을 랜덤컬러로 지정
 		
 		ranX = random.getX() + (int) (Math.random() * 20); // 좌표 랜덤
 		ranY = random.getY() + (int) (Math.random() * 20);
@@ -287,7 +287,7 @@ public class View implements Initializable {
 				return; // 리턴이 중요!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 			}
 		}
-		bodylist.add(colorlist.colorlist.get(ranC)); // 제대로 만들어졌으면 랜덤열매리스트에 추가
+		bodylist.add(colorclass.colorlist.get(ranC)); // 제대로 만들어졌으면 랜덤열매리스트에 추가
 	}
 	
 	public void setHead(){ // 헤드 초기 지정

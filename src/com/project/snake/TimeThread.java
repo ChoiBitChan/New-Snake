@@ -8,17 +8,12 @@ public class TimeThread extends Thread {
 	//초를 세기위한 변수 선언
 	int bonusCnt;
 	int score;
-	//boolean isQuit = false;
 	boolean timeOnOff = false;
-
-
-	
 	
 	public TimeThread(View snakemain) {
 		//초를 세기위한 변수 초기화
 		this.snakemain = snakemain;
 		bonusCnt = 101;
-		//isQuit = true;
 		timeOnOff = true;
 		
 	}
@@ -26,9 +21,6 @@ public class TimeThread extends Thread {
 	
 	@Override
 	public void run() {
-		//while(isQuit){
-		//초를센다.
-		//}
 		try {
 			while(timeOnOff){
 				
@@ -38,7 +30,7 @@ public class TimeThread extends Thread {
 					System.out.println(bonusCnt);
 					Platform.runLater(()->{
 						//snakemain.label.setText(Integer.toString(timeCnt));
-						//snakemain.timer();
+						snakemain.timer();
 					});
 					
 				}

@@ -24,11 +24,4 @@ public class Point {
 		this.y = y;
 	}
 
-	public void setColor(Paint c) {
-		this.paint = c;
-	}
-
-	public Paint getColor() {
-		return paint;
-	}
 }

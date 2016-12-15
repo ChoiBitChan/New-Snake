@@ -5,9 +5,10 @@ import java.util.ArrayList;
 import javafx.scene.paint.Color;
 
 public class Colorlist {
+	
 	ArrayList<Color> colorlist;
+	
 	public Colorlist() {
-
 	}
 
 	public void createColor(){

@@ -2,7 +2,7 @@ package com.project.snake;
 
 import javafx.application.Platform;
 
-public class TimeThread extends Thread {
+public class CountThread extends Thread {
 	
 	View snakemain;
 	//초를 세기위한 변수 선언
@@ -10,7 +10,7 @@ public class TimeThread extends Thread {
 	int score;
 	boolean timeOnOff = false;
 	
-	public TimeThread(View snakemain) {
+	public CountThread(View snakemain) {
 		//초를 세기위한 변수 초기화
 		this.snakemain = snakemain;
 		bonusCnt = 101;

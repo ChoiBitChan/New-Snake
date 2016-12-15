@@ -50,7 +50,7 @@ public class View implements Initializable {
 	Rectangle[][] panel;
 	Point random; // 랜덤으로 나오는 과일 좌표
 	Point head; // 헤드 좌표
-	TimeThread tt; // 쓰레드
+	CountThread tt; // 쓰레드
 	Paint randomcolor; // 랜덤으로 나오는 열매 색깔
 	
 	Color bg_color = Color.BLACK; // 배경 색
@@ -83,7 +83,7 @@ public class View implements Initializable {
 		vbox.getChildren().add(rect);
 		*/
 		
-		tt = new TimeThread(this); // 쓰레드 객체 생성
+		tt = new CountThread(this); // 쓰레드 객체 생성
 		tt.start(); // 쓰레드 시작
 		
 		Blabel.setStyle("-fx-font-size:25"); // 보너스 레이블 폰트 사이즈 지정

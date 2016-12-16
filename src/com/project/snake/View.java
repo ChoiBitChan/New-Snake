@@ -32,6 +32,8 @@ public class View implements Initializable {
 	private Label Slabel; // 점수 레이블
 	@FXML
 	private Label Blabel; // 보너스 레이블
+	@FXML
+	private Label Elabel; // 먹은 열매 레이블
 	
 	
 	int xCnt = 20; // 칸 개수
@@ -50,7 +52,7 @@ public class View implements Initializable {
 	Rectangle[][] panel;
 	Point random; // 랜덤으로 나오는 과일 좌표
 	Point head; // 헤드 좌표
-	CountThread tt; // 쓰레드
+	CountThread CntTh; // 쓰레드
 	Paint randomcolor; // 랜덤으로 나오는 열매 색깔
 	
 	Color bg_color = Color.BLACK; // 배경 색
@@ -83,8 +85,8 @@ public class View implements Initializable {
 		vbox.getChildren().add(rect);
 		*/
 		
-		tt = new CountThread(this); // 쓰레드 객체 생성
-		tt.start(); // 쓰레드 시작
+		CntTh = new CountThread(this); // 쓰레드 객체 생성
+		CntTh.start(); // 쓰레드 시작
 		
 		Blabel.setStyle("-fx-font-size:25"); // 보너스 레이블 폰트 사이즈 지정
 		Slabel.setStyle("-fx-font-size:25"); // 스코어 레이블 폰트 사이즈 지정
@@ -138,7 +140,7 @@ public class View implements Initializable {
 			}
 			if (e.getCode() == KeyCode.ENTER) { // 엔터를 누르면
 				startGame(); // 게임이 실행된다
-				tt.bonusCnt = 101; // 보너스 카운트 초기 값 설정
+				CntTh.bonusCnt = 101; // 보너스 카운트 초기 값 설정
 				if (timeline.getStatus() == Status.STOPPED) { // 현재 게임 상태가 멈춰 있다면
 					timeline.play(); // 타임라인 실행
 				}
@@ -183,8 +185,9 @@ public class View implements Initializable {
 		}
 	}
 	public void timer(){
-		Blabel.setText("BONUS : " + Integer.toString(tt.bonusCnt));
-		Slabel.setText("SCORE : " + Integer.toString(tt.score));
+		Blabel.setText("BONUS : " + Integer.toString(CntTh.bonusCnt));
+		Slabel.setText("SCORE : " + Integer.toString(CntTh.score));
+		Elabel.setText("EAT : " + Integer.toString(CntTh.eat));
 	}
 	
 	public void move(int off_y, int off_x){ // 함수를 생성한다
@@ -198,7 +201,8 @@ public class View implements Initializable {
 			temp_x > xCnt - 1) { // 오른쪽
 				System.out.println("게임오버");
 				timeline.stop(); // 게임 정지
-				tt.bonusCnt = 10; // 보너스 카운트 초기화
+				CntTh.bonusCnt = 101; // 보너스 카운트 초기화
+				
 			return;
 		}
 		for(int i = 0; i<headlist.size(); i++){ // 몸통의 길이만큼 반복
@@ -207,16 +211,18 @@ public class View implements Initializable {
 			if((temp_y == y) && (temp_x == x)){ // 미리 가본 좌표가 내몸과 일치하게 되면 죽는다
 				System.out.println("게임오버");
 				timeline.stop();
-				tt.bonusCnt = 10;
+				CntTh.bonusCnt = 101;
 			}
 		}
 		if (temp_y == random.getY() && temp_x == random.getX()) { // 미리 가본 좌표가 열매 일 때
 			// 먹는 로직 -> 먹음과 동시에 헤드가 길어짐
 			headlist.add(random); // 열매를 몸통에 추가
 			head = random; // 열매를 머리로 만들다
+			CntTh.score = CntTh.score + CntTh.bonusCnt; // 점수 계산
+			CntTh.bonusCnt = 101; // 다시 초기화  
+			CntTh.eat++;
+			System.out.println(CntTh.eat);
 			
-			tt.score = tt.score + tt.bonusCnt; // 점수 계산
-			tt.bonusCnt = 101; // 다시 초기화  
 			
 			random(); // 먹고 나서 새로운 함수 생성
 			//System.out.println("몸통길이 : " + headlist.size());

@@ -8,6 +8,7 @@ public class CountThread extends Thread {
 	//초를 세기위한 변수 선언
 	int bonusCnt;
 	int score;
+	int eat;
 	boolean timeOnOff = false;
 	
 	public CountThread(View snakemain) {

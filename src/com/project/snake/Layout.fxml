@@ -13,6 +13,7 @@
 		<VBox fx:id="vbox">
 			<Label fx:id="Slabel" text="SCORE: 0"></Label>
 			<Label fx:id="Blabel" text="BONUS: 100"></Label>
+			<Label fx:id="Elabel" text="EAT: 0"></Label>
 		</VBox>
 	</HBox>
 </AnchorPane>

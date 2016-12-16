@@ -8,7 +8,7 @@
 
 <AnchorPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.project.snake.View">
 	<!-- TODO Add Nodes -->
-	<HBox>
+	<HBox fx:id="hbox">
 		<GridPane fx:id="grid"></GridPane>
 		<VBox fx:id="vbox">
 			<Label fx:id="Slabel" text="SCORE: 0"></Label>

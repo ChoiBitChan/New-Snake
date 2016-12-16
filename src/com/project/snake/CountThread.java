@@ -15,7 +15,7 @@ public class CountThread extends Thread {
 		//초를 세기위한 변수 초기화
 		this.snakemain = snakemain;
 		bonusCnt = 101;
-		timeOnOff = true;
+		timeOnOff = false;
 		
 	}
 	
@@ -25,10 +25,10 @@ public class CountThread extends Thread {
 		try {
 			while(timeOnOff){
 				
-				Thread.sleep(200);
+				Thread.sleep(100);
 				if(bonusCnt > 10){
 					bonusCnt--;
-					System.out.println(bonusCnt);
+					//System.out.println(bonusCnt);
 					Platform.runLater(()->{
 						//snakemain.label.setText(Integer.toString(timeCnt));
 						snakemain.timer();

@@ -9,6 +9,7 @@ public class ColorClass {
 	ArrayList<Color> colorlist;
 	
 	public ColorClass() {
+		
 	}
 
 	public void createColor(){
